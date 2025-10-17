@@ -5,9 +5,14 @@ import { Ebook } from './ebook';
   providedIn: 'root'
 })
 export class EbookService {
-  private ebooks : Ebook[] = [];
+  private ebooks : Ebook[] = [
+    {id : 1, title : 'Atomic Habits', author : 'James Clear', price : 30},
+    {id : 2, title : 'The slight edge', author : 'Jeff Olsen', price : 25}
+  ];
 
-  //getEbooks
+  getEbooks(){
+    return [...this.ebooks];
+  }
 
   //addEbook
   

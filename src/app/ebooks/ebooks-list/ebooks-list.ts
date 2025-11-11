@@ -15,8 +15,15 @@ export class EbooksList implements OnInit {
   constructor(private ebookSrvc : EbookService){
   }
 
+  deleteEbook(id : number){
+    this.ebookSrvc.deleteEbook(id);
+  }
+
   ngOnInit(): void {
     this.ebooks = this.ebookSrvc.getEbooks();
+    this.ebookSrvc.ebooksUpdated.subscribe(
+      (ebooks) => this.ebooks = ebooks
+    )
   }
 
 }
